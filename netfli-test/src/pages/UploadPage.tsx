@@ -77,7 +77,7 @@ const UploadPage = () => {
                             component="div"
                             sx={{ m: 1 }}
                         >
-                            File types supported : mp3...
+                            File types supported : mp3..
                         </Typography>
                     </BoxWithMargin>
                     <BoxWithMargin>
