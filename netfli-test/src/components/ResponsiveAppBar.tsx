@@ -27,7 +27,6 @@ const linkPages = [
         link: "/music",
     },
 ];
-const pages = ["메인", "업로드", "음악검색"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
