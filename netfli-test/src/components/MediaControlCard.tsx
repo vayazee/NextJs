@@ -19,7 +19,7 @@ export default function MediaControlCard() {
 
     React.useEffect(() => {
         isPlay ? audio.play() : audio.pause();
-    }, [isPlay]);
+    }, [isPlay, audio]);
 
     return (
         <Card sx={{ display: "flex" }}>
