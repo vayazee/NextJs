@@ -15,15 +15,15 @@ import { Link } from "react-router-dom";
 
 const linkPages = [
     {
-        display: "메인",
+        display: "MAIN",
         link: "/",
     },
     {
-        display: "업로드",
+        display: "UPLOAD",
         link: "/upload",
     },
     {
-        display: "음악검색",
+        display: "SEARCH",
         link: "/music",
     },
 ];
@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
+        // setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = (e: React.MouseEvent<HTMLElement>) => {
@@ -61,6 +61,7 @@ const ResponsiveAppBar = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
+                        color="secondary"
                         variant="h5"
                         noWrap
                         component="div"
@@ -68,9 +69,8 @@ const ResponsiveAppBar = () => {
                             display: { xs: "none", md: "flex" },
                         }}
                     >
-                        TABLE ELEVEN
+                        LOGO
                     </Typography>
-
                     <Box
                         sx={{
                             flexGrow: 1,
@@ -135,13 +135,13 @@ const ResponsiveAppBar = () => {
                             display: { xs: "flex", md: "none" },
                         }}
                     >
-                        NFTTT
+                        LOGO
                     </Typography>
                     <Box
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
-                            marginLeft: "50px",
+                            marginLeft: "120px",
                         }}
                     >
                         {linkPages.map((page) => (
@@ -159,53 +159,27 @@ const ResponsiveAppBar = () => {
                                         my: 2,
                                         color: "white",
                                         display: "block",
+                                        marginRight: "12px",
+                                        fontSize: "12pt",
                                     }}
                                 >
                                     {page.display}
-                                </Button>{" "}
+                                </Button>
                             </Link>
                         ))}
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="change language">
                             <IconButton
                                 onClick={handleOpenUserMenu}
                                 sx={{ p: 0 }}
                             >
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    src="/static/images/avatar/2.jpg"
-                                />
+                                <Typography variant="h6" color="secondary">
+                                    KR
+                                </Typography>
                             </IconButton>
                         </Tooltip>
-                        <Menu
-                            sx={{ mt: "45px" }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: "top",
-                                horizontal: "right",
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: "top",
-                                horizontal: "right",
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={handleCloseUserMenu}
-                                >
-                                    <Typography textAlign="center">
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
                     </Box>
                 </Toolbar>
             </Container>

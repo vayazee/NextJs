@@ -6,20 +6,25 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import AudiotrackRoundedIcon from "@mui/icons-material/AudiotrackRounded";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
+import Typography from "@mui/material/Typography";
 
 const Input = styled("input")({
     display: "none",
 });
 
-export default function UploadButtons() {
+export default function UploadButton() {
     const [fileName, setFileName] = useState("");
 
     const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.currentTarget.value);
+        const fileList = e.currentTarget.files;
+        if (!fileList) return;
+
+        setFileName(fileList[0].name);
     };
 
     return (
-        <Stack direction="row" alignItems="center" spacing={2}>
+        <Stack alignItems="left">
             <label htmlFor="contained-button-file">
                 <Input
                     accept="audio/*"
@@ -33,6 +38,23 @@ export default function UploadButtons() {
                     <AudiotrackRoundedIcon />
                 </Button>
             </label>
+            {/* 여기 나중에 삭제 버튼  */}
+            <Typography
+                variant="subtitle2"
+                color="text.secondary"
+                component="div"
+            >
+                <b>upload fileName:</b>
+                {fileName}
+            </Typography>
+            <Typography
+                variant="subtitle2"
+                color="text.secondary"
+                component="div"
+                sx={{ m: 0 }}
+            >
+                File types supported : mp3..
+            </Typography>
         </Stack>
     );
 }
